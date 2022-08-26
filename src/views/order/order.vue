@@ -8,6 +8,6 @@
 
 </script>
 
-<style scoped lan="less">
+<style scoped lang="less">
 
 </style>

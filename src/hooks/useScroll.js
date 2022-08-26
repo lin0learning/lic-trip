@@ -12,6 +12,7 @@ export default function useScroll(elRef) {
 
     //  防抖/节流
     const scrollListenerHandler = throttle(() => {
+        // console.log("正在滚动");
         if (el === window) {
             // 元素可视区高度
             clientHeight.value = document.documentElement.clientHeight
@@ -21,7 +22,7 @@ export default function useScroll(elRef) {
             scrollHeight.value = document.documentElement.scrollHeight
         } else {
             clientHeight.value = el.clientHeight
-            scrollTop.value = el.screenTop
+            scrollTop.value = el.scrollTop
             scrollHeight.value = el.scrollHeight
         }
         
@@ -33,7 +34,9 @@ export default function useScroll(elRef) {
     }, 100)
 
     onMounted(() => {
-        if (elRef) el = elRef.value
+        if (elRef) {
+            el = elRef.value
+        }
         el.addEventListener("scroll", scrollListenerHandler)
     })
 

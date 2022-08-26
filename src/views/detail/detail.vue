@@ -1,6 +1,10 @@
 <template>
   <div class="detail">
-    <tab-control class="tabs" :titles="names" @cgIndex="getIndex"/>
+    <tab-control 
+      :titles="names"
+      class="tabs"
+      v-if="showTabControl"
+    />
     <!-- 1. 导航栏NavBar -->
     <van-nav-bar
       title="房屋详情"
@@ -43,6 +47,7 @@ import detailIntro from './cpns/detail_08-intro.vue'
 import tabControl from '@/components/tab-control/tab-control.vue';
 import TabControl from '@/components/tab-control/tab-control.vue';
 
+
 const route = useRoute()
 const router = useRouter()
 const houseId = route.params.id
@@ -58,20 +63,23 @@ const mainPart = computed(() => detailInfos.value.mainPart)
 getDetails(houseId).then(res => {
     detailInfos.value = res.data
 })
-
-// 导航栏 tab-control 的相关操作
+const active = ref()
 const names = ['描述','设施','房东','评论','须知','周边',]
-const currentIndex = ref(0)
-const getIndex = (value) => {
-  currentIndex.value = value
-}
+// tab-control导航栏的相关操作
+// 1. 滚动显示和隐藏
+const { scrollTop } = useScroll()
+const showTabControl = computed(() => {
+  return scrollTop.value >= 300
+})
+// 2. 点击跳转导航
+
 
 </script>
 
 <style scoped lang="less">
 .tabs {
   position: fixed;
-  z-index: 9;
+  z-index: 19;
   left: 0;
   right: 0;
   top: 0;

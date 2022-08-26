@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <template v-for="(item,index) in titles" :key="index">
+    <template v-for="(item,index) in titles" :key="item">
         <div 
           class="box"
           @click="changeIndex(index)"
-          :class="{active: this.currentIndex === index}"
+          :class="{active: currentIndex === index}"
         >
             <p>{{ item }}</p>
         </div>
@@ -19,6 +19,7 @@ export default {
             currentIndex: 0
         }
     },
+    emits: ["cgIndex"],
     methods: {
         changeIndex(index) {
             this.currentIndex = index
