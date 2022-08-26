@@ -1,10 +1,5 @@
 <template>
   <div class="detail">
-    <tab-control 
-      :titles="names"
-      class="tabs"
-      v-if="showTabControl"
-    />
     <!-- 1. 导航栏NavBar -->
     <van-nav-bar
       title="房屋详情"
@@ -34,7 +29,6 @@
 import { ref, computed } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { getDetails } from '@/service/index'
-import useScroll from '@/hooks/useScroll';
 
 import detailSwipe from './cpns/detail_01-swipe.vue'
 import detailIntros from './cpns/detail_02-intros.vue'
@@ -44,14 +38,13 @@ import detailComment from './cpns/detail_05-comment.vue'
 import detailNotice from './cpns/detail_06-notice.vue'
 import detailMap from './cpns/detail_07-map.vue'
 import detailIntro from './cpns/detail_08-intro.vue'
-import tabControl from '@/components/tab-control/tab-control.vue';
-import TabControl from '@/components/tab-control/tab-control.vue';
 
 
 const route = useRoute()
 const router = useRouter()
 const houseId = route.params.id
 
+// 监听返回按钮
 const onClickLeft = () => {
     router.back()
 }
@@ -63,27 +56,10 @@ const mainPart = computed(() => detailInfos.value.mainPart)
 getDetails(houseId).then(res => {
     detailInfos.value = res.data
 })
-const active = ref()
-const names = ['描述','设施','房东','评论','须知','周边',]
-// tab-control导航栏的相关操作
-// 1. 滚动显示和隐藏
-const { scrollTop } = useScroll()
-const showTabControl = computed(() => {
-  return scrollTop.value >= 300
-})
-// 2. 点击跳转导航
-
 
 </script>
 
 <style scoped lang="less">
-.tabs {
-  position: fixed;
-  z-index: 19;
-  left: 0;
-  right: 0;
-  top: 0;
-}
 .detail {
   padding-bottom: 50px;
 }
