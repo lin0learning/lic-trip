@@ -1,5 +1,5 @@
 <template>
-  <div class="detail">
+  <div class="detail top-page" ref="detailRef">
     <!-- 1. 导航栏NavBar -->
     <van-nav-bar
       title="房屋详情"
@@ -10,12 +10,26 @@
     <!-- 2. 各个组件划分 -->
     <div class="main" v-if="mainPart" v-memo="[mainPart]">
       <detail-swipe :swipe-data="mainPart.topModule.housePicture.housePics.slice(0,20)" />
-      <detail-intros :infos="mainPart.topModule" />
-      <detail-facility :house-facility="mainPart.dynamicModule.facilityModule.houseFacility"/>
-      <detail-landlord :land-lord="mainPart.dynamicModule.landlordModule"/>
-      <detail-comment :comment="mainPart.dynamicModule.commentModule"/>
-      <detail-notice :order-rules="mainPart.dynamicModule.rulesModule.orderRules" />
-      <detail-map :position="mainPart.dynamicModule.positionModule" />
+      <van-tabs v-model:active="active" scrollspy sticky color="#ff9854">
+        <van-tab title="描述">
+          <detail-intros :infos="mainPart.topModule" />
+        </van-tab>
+        <van-tab title="设施">
+          <detail-facility :house-facility="mainPart.dynamicModule.facilityModule.houseFacility"/>
+        </van-tab>
+        <van-tab title="房东">
+          <detail-landlord :land-lord="mainPart.dynamicModule.landlordModule"/>
+        </van-tab>
+        <van-tab title="评论">
+          <detail-comment :comment="mainPart.dynamicModule.commentModule"/>
+        </van-tab>
+        <van-tab title="须知">
+          <detail-notice :order-rules="mainPart.dynamicModule.rulesModule.orderRules" />
+        </van-tab>
+        <van-tab title="周边">
+          <detail-map :position="mainPart.dynamicModule.positionModule" />
+        </van-tab>
+      </van-tabs>
       <detail-intro :price-intro="mainPart.introductionModule" />
     </div>
     <div class="footer">
@@ -43,6 +57,7 @@ import detailIntro from './cpns/detail_08-intro.vue'
 const route = useRoute()
 const router = useRouter()
 const houseId = route.params.id
+const active = ref()
 
 // 监听返回按钮
 const onClickLeft = () => {
@@ -62,6 +77,7 @@ getDetails(houseId).then(res => {
 <style scoped lang="less">
 .detail {
   padding-bottom: 50px;
+  box-sizing: border-box;
 }
 .footer {
   display: flex;

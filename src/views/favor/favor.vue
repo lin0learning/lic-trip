@@ -12,7 +12,7 @@ import { ref } from 'vue'
 import useScroll from '@/hooks/useScroll';
 
 const favorRef = ref()
-useScroll(favorRef)
+const { scrollTop } = useScroll(favorRef)
 </script>
 
 <style scoped lang="less">
