@@ -1,0 +1,30 @@
+:root {
+    --primary-color: #ff9854;
+    --line-color: #efefef;
+    --van-search-left-icon-color: #ff9854 !important;
+    --van-primary-color: var(--primary-color);
+    --van-tab-active-text-color: var(--primary-color) !important;
+}
+body {
+    font-size: 14px;
+}
+
+
+.bottom-gray-line {
+    border-bottom: 1px solid var(--line-color);
+}
+
+.icon_check {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url(../img/detail/icon_check.png) 0 0 / 100% 100%;
+}
+
+.top-page {
+    position: relative;
+    z-index: 9;
+    height: 100vh;
+    background-color: #fff;
+    overflow-y: auto;
+}
