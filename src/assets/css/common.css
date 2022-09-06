@@ -1,10 +1,11 @@
 :root {
-    --primary-color: #ff9854;
+    --primary-color: #ff9854 !important;
     --line-color: #efefef;
     --van-search-left-icon-color: #ff9854 !important;
     --van-primary-color: var(--primary-color);
     --van-tab-active-text-color: var(--primary-color) !important;
     --van-nav-bar-title-text-color: var(--primary-color) !important;
+    --van-tabs-bottom-bar-color: var(--van-primary-color) !important;
 }
 body {
     font-size: 14px;
