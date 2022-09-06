@@ -55,6 +55,10 @@
     justify-content: space-around;
     padding: 10px;
     padding-right: 25px;
+    &::after {
+      content: "";
+      flex: auto;
+    }
     .hot-city {
       width: 60px;
       height: 28px;
