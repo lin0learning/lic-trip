@@ -30,3 +30,17 @@ body {
     background-color: #fff;
     overflow-y: auto;
 }
+
+.ellipsis-text-1 {
+    overflow: hidden;
+    word-wrap: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.ellipsis-text-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
