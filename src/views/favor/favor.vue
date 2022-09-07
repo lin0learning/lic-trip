@@ -51,10 +51,10 @@ const favorStore = useFavorStore()
 const historyStore = useHistoryStore()
 
 // 网络请求
-if (!localStorage.getItem('favor')) {
+if (!sessionStorage.getItem('favor')) {
   favorStore.getFavorData()
 }
-if (!localStorage.getItem('history')) {
+if (!sessionStorage.getItem('history')) {
   historyStore.getHistoryData()
 }
 // 取得房屋数据

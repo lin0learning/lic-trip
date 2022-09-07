@@ -39,7 +39,7 @@
     // 2.1 从Pinia中获取数据
     const cityStore = useCityStore()
     /// 判断localStorage中是否有city, 若无则调用发送请求数据函数
-    if (!localStorage.getItem('city')) {
+    if (!sessionStorage.getItem('city')) {
         cityStore.fetchAllCitiesData()
     }
     const { allCities } = storeToRefs(cityStore)
