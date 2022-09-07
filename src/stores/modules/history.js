@@ -16,7 +16,7 @@ const useHistoryStore = defineStore("history", {
         enabled: true,
         strategies: [
             {
-                storage: localStorage,
+                storage: sessionStorage,
                 paths: ['historyList']
             }
         ]

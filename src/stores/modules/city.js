@@ -22,7 +22,7 @@ const useCityStore = defineStore("city", {
         // 自定义存储方法, 默认sessionStorage
         strategies: [
             {
-                storage: localStorage,
+                storage: sessionStorage,
                 // 指定要持久化的数据, 默认当前所有 state 都会进行缓存, 可通过 paths 指定要持久化的字段
                 paths: ['allCities']
             }

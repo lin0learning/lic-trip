@@ -16,7 +16,7 @@ const useFavorStore = defineStore("favor", {
         enabled: true,
         strategies: [
             {
-                storage: localStorage,
+                storage: sessionStorage,
                 paths: ['favorList']
             }
         ]
