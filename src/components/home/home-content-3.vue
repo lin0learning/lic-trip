@@ -1,7 +1,7 @@
 <template>
   <div class="house-item">
     <div class="item">
-      <img :src="itemData.image.url" class="cover">
+      <img v-lazy="itemData.image.url" class="cover">
       <div class="infos">
       <div class="reagion">
           <img src="@/assets/img/home/location.png" class="location">

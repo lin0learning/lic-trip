@@ -1,7 +1,7 @@
 <template>
   <div class="house-item">
     <div class="item">
-        <img :src="itemData.image.url">
+        <img v-lazy="itemData.image.url">
         <div class="infos">
         <div class="summary">{{itemData.summaryText}}</div>
         <div class="house-name">{{itemData.houseName}}</div>

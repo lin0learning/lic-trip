@@ -44,3 +44,13 @@ body {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+img[lazy=loading] {
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}
+img[lazy=error] {
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+}
